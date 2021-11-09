@@ -10,13 +10,19 @@ if button:
     try:
         transcript_corpus = get_transcript(video_url)
         st.header("Transcript")
-        st.write(transcript_corpus)
+        with st.expander("View Transcript"):
+            st.write(transcript_corpus)
         summary = get_summary(transcript_corpus)
         st.header("Summary")
-        st.write(summary)
+        with st.expander("View Summary"):
+            
+            st.write(summary)
     except Exception as e:
         st.warning("Whooops! Could not retrieve a transcript for the video")
         st.exception(e)
+    
+    
+
     
     
 
