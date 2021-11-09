@@ -3,7 +3,7 @@ import streamlit as st
  
 st.title("Youtube Summarizer")
 st.header("This application help you to get the summary of a youtube video")
-video_url = st.text_input("Enter youtube video URL")
+video_url = st.text_input("Enter youtube video URL: [you can try https://www.youtube.com/watch?v=j70AA9arThc]")
 button = st.button("Get Summary")
 
 if button:
