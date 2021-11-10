@@ -7,6 +7,7 @@ video_url = st.text_input("Enter youtube video URL: [you can try https://www.you
 button = st.button("Get Summary")
 try:
     if button:
+        st.video(video_url)
         transcript_corpus = get_transcript(video_url)
         st.header("Transcript")
         with st.expander("View Transcript"):
