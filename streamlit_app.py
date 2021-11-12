@@ -15,8 +15,8 @@ try:
         summary = get_summary(transcript_corpus)
         st.header("Summary")
         with st.expander("View Summary"):
-            
             st.write(summary)
+        st.balloons()
 except Exception as e:
     st.warning("Whooops! Could not retrieve a transcript for the video")
     st.exception(e)
