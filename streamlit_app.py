@@ -37,7 +37,7 @@ try:
             st.header("Summary")
             with st.expander("View Summary"):
                 st.markdown('___')
-                st.text(summary)
+                st.write(summary)
         except Exception as e:
             st.warning("Ugh ohh! Something went wrong while summarizing the transcript.")
         st.header("Summary Analysis")
