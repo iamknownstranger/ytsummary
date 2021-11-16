@@ -3,7 +3,7 @@ import streamlit as st
  
 st.title("Youtube Summarizer")
 st.header("This application help you to get the summary of a youtube video")
-video_url = st.text_input("Enter youtube video URL: [you can try https://www.youtube.com/watch?v=j70AA9arThc]")
+video_url = st.text_input("Enter youtube video URL: [you can try https://www.youtube.com/watch?v=_FdDgJAw-YM]")
 button = st.button("Get Summary")
 try:
     if button:
@@ -13,18 +13,19 @@ try:
             st.video(video_url)
         st.header("Metadata")
         with st.expander("View Metadata"):
+            
             st.markdown('___')
             author, keywords, length, views, description = get_metadata(video_url)
-            st.text("Author")
+            st.subheader("Author")
             st.write(author)
             st.markdown('___')
-            st.text("Keywords")
+            st.subheader("Keywords")
             st.write(keywords)
             st.markdown('___')
-            st.text("Views")
+            st.subheader("Views")
             st.write(views)
             st.markdown('___')
-            st.text("Description")
+            st.subheader("Description")
             st.write(description)
 
         transcript_corpus = get_transcript(video_url)
@@ -38,27 +39,30 @@ try:
             with st.expander("View Summary"):
                 st.markdown('___')
                 st.write(summary)
+        
+            st.header("Summary Analysis")
+            with st.expander("View Analysis"):
+                read_time, text_complexity, lexical_richness, num_sentences = get_summary_analysis(summary)
+                st.markdown('___')
+                st.subheader('Reading Time')
+                st.write(read_time)
+                st.markdown('___')
+                st.subheader('Text Complexity')
+                st.text("values ranges from 0 or negative (hard to read), to 100 or more (easy to read)")
+                st.write(text_complexity)
+                st.markdown('___')
+                st.subheader('Lexical Richness')
+                st.text("distinct words over total number of words")
+                st.write(lexical_richness)
+                st.markdown('___')
+                st.subheader('Number of sentences')
+                st.write(num_sentences)
+            st.balloons()
         except Exception as e:
             st.warning("Ugh ohh! Something went wrong while summarizing the transcript.")
-        st.header("Summary Analysis")
-        with st.expander("View Analysis"):
-            read_time, text_complexity, lexical_richness, num_sentences = get_summary_analysis(summary)
-            st.markdown('___')
-            st.text('Reading Time')
-            st.write(read_time)
-            st.markdown('___')
-            st.text('Text Complexity: from 0 or negative (hard to read), to 100 or more (easy to read)')
-            st.write(text_complexity)
-            st.markdown('___')
-            st.text('Lexical Richness (distinct words over total number of words)')
-            st.write(lexical_richness)
-            st.markdown('___')
-            st.text('Number of sentences')
-            st.write(num_sentences)
-        st.balloons()
+        
 except Exception as e:
     st.warning("Whooops! Could not retrieve a transcript for the video")
-    st.exception(e)
     
     
 hide_streamlit_style = """
