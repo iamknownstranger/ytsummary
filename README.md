@@ -1,0 +1,3 @@
+# Youtube Transcript Summarizer
+Enormous number of video recordings are being created and shared on the Internet through out the day. It has become really difficult to spend time in watching such videos which may have a longer duration than expected and sometimes our efforts may become futile if we couldn't find relevant information out of it. Summarizing transcripts of such videos automatically allows us to quickly look out for the important patterns in the video and helps us to save time and efforts to go through the whole content of the video.
+This is a simple web application where you can view the summarized transcript of a youtube video
